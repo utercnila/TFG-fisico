@@ -1,0 +1,15 @@
+---
+- name: Enable Ospf on r-norte
+
+  hosts: r-norte
+  connection: local
+
+  tasks: 
+    - name: Enable OSPF on R-norte
+      ios_config:
+        authorize: yes
+        auth_pass: ansible
+        lines:
+          - network 172.16.2.0 0.0.0.3 area 1
+        parents:
+          - router ospf 1

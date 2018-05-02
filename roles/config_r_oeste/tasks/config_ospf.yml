@@ -1,0 +1,19 @@
+---
+- name: Enable Ospf on r-oeste
+
+  hosts: r-oeste
+  connection: local
+
+  tasks: 
+    - name: Enable OSPF on R-oeste
+      ios_config:
+        authorize: yes
+        auth_pass: ansible
+        lines:
+          - network 192.168.99.0 0.0.0.255 area 1
+          - network 192.168.21.0 0.0.0.255 area 1
+          - network 192.168.23.0 0.0.0.255 area 1
+          - network 172.16.1.0 0.0.0.3 area 1
+        parents:
+          - router ospf 1
+

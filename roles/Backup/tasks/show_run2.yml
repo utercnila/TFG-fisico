@@ -1,0 +1,19 @@
+---
+- name: Copia de seguridad de la configuracion de Sw-este
+  hosts: 192.168.99.10
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Mostrar la configuracion de Sw-este
+      ios_command:
+        authorize: yes
+        auth_pass: ansible
+        commands:
+          - show run
+
+      register: print
+    - debug: var=print.stdout_lines
+
+    - name: Guardar copia de seguridad
+      copy: content="{{ print.stdout[0] }}" dest="/root/Training/backups/{{ inventory_hostname }}.txt"

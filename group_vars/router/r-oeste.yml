@@ -1,0 +1,12 @@
+## Subinterface for Vlan21 ##
+id_vlan21: 21
+ip_vlan21: 192.168.21.1
+
+## Subinterface for Vlan23 ##
+id_vlan23: 23
+ip_vlan23: 192.168.23.1
+
+## Ip for serial6/0 ##
+ip_r_oeste_s6_0: 172.16.1.1
+mask_r_oeste_s6_0: 255.255.255.252
+

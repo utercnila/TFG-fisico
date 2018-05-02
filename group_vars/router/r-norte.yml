@@ -1,0 +1,9 @@
+## Ip for Serial 6/0 ## 
+ip_r_norte_s6_0: 172.16.1.2
+mask_r_norte_s6_0: 255.255.255.252
+
+## Ip for Serial 6/1 ##
+ip_r_norte_s6_1: 172.16.2.2 
+mask_r_norte_s6_1: 255.255.255.252
+clock_rate: 128000
+

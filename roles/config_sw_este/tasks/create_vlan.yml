@@ -1,0 +1,29 @@
+#Create Vlan 21,23#
+---
+- name: Create Vlan 21 and 23
+  hosts: sw-este
+  connection: local
+  
+  tasks:
+    - name: create VLAN
+      ios_config:
+        authorize: yes
+        auth_pass: ansible
+        
+        lines:
+          - name {{ item.name }}
+        parents:
+          - vlan "{{ item.id }}"
+      
+      with_items:
+        - { id: 21, name: Contabilidad }
+        - { id: 23, name: Ingenieria } 
+
+    - name: show vlan
+      ios_command:
+        authorize: yes
+        commands:
+          - show vlan brief
+      register: sh_vlan
+
+    - debug: var=sh_vlan.stdout_lines
