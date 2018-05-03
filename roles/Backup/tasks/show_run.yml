@@ -1,6 +1,6 @@
 ---
 - name: Backup configuration
-  hosts: switch, router
+  hosts: r-oeste
   gather_facts: false
   connection: local
 

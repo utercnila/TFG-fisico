@@ -16,8 +16,8 @@
           - vlan "{{ item.id }}"
 
       with_items:
-        - { id: {{ id_vlan21 }}, name: {{ name_vlan21Â}} }
-        - { id: {{ id_vlan23 }}, name: {{ name_vlan23 }} }
+        - { id: "{{ id_vlan21 }}", name: "{{ name_vlan21}}" }
+        - { id: "{{ id_vlan23 }}", name: "{{ name_vlan23 }}" }
 
     - name: show vlan
       ios_command:
