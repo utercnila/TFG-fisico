@@ -5,7 +5,6 @@
 
   hosts: r-norte
   connection: local
-  force_handlers: True
 
   tasks:
 
@@ -17,8 +16,8 @@
         description: "{{ item.desc }}"
       
       with_items:
-        - { id: Serial 6/0, desc: Connection to r-oeste }
-        - { id: Serial 6/1, desc: Connection to r-este }
+        - { id: {{ id_s6_0 }}, desc: {{ desc_s6_0 }} }
+        - { id: {{ id_s6_1 }}, desc: {{ desc_s6_1 }} }
 
     - name: Configure serial 6/0 & 6/1
       ios_config:
@@ -31,8 +30,8 @@
         after: no shutdown
       
       with_items:
-        - { id: Serial 6/0, ip: "{{ ip_r_norte_s6_0 }}", mask: "{{ mask_r_norte_s6_0 }}" }
-        - { id: Serial 6/1, ip: "{{ ip_r_norte_s6_1 }}", mask: "{{ mask_r_norte_s6_1 }}" }
+        - { id: {{ id_s6_0 }}, ip: "{{ ip_r_norte_s6_0 }}", mask: "{{ mask_r_norte_s6_0 }}" }
+        - { id: {{ id_s6_1 }}, ip: "{{ ip_r_norte_s6_1 }}", mask: "{{ mask_r_norte_s6_1 }}" }
   
     - name: Enable Clock Rate Serial 6/1
       ios_config:

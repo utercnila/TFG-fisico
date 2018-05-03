@@ -10,10 +10,11 @@
         authorize: yes
         auth_pass: ansible
         lines:
-          - network 192.168.99.0 0.0.0.255 area 1
-          - network 192.168.21.0 0.0.0.255 area 1
-          - network 192.168.23.0 0.0.0.255 area 1
-          - network 172.16.1.0 0.0.0.3 area 1
+          - network {{ ip_lan99 }} {{ wildmask_lan99Â}} {{ areaÂ}}
+          - network {{ ip_lan21 }} {{ wildmask_lan21Â}} {{ areaÂ}}
+          - network {{ ip_lan23 }} {{ wildmask_lan23Â}} {{ areaÂ}}
+          - network {{ ip_s6_0 }} {{ wildmask_s6_0 }} {{ areaÂ}}
+
         parents:
           - router ospf 1
 

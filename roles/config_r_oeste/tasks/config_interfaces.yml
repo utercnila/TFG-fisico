@@ -30,13 +30,6 @@
       with_items:
         - { id: Serial 6/0 }
 
-    - name: Default router
-      ios_config:
-        authorize: yes
-        auth_pass: ansible
-        lines:
-          - ip route 0.0.0.0 0.0.0.0 s6/0
-    
     - name: Save configuration
       ios_command:
         authorize: yes

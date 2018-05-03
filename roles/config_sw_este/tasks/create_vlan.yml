@@ -16,8 +16,8 @@
           - vlan "{{ item.id }}"
       
       with_items:
-        - { id: 21, name: Contabilidad }
-        - { id: 23, name: Ingenieria } 
+        - { id: {{ id_vlan21 }}, name: {{ name_vlan21 }} }
+        - { id: {{ id_vlan23 }}, name: {{ name_vlan23Â}} } 
 
     - name: show vlan
       ios_command:

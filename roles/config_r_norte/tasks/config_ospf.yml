@@ -10,6 +10,6 @@
         authorize: yes
         auth_pass: ansible
         lines:
-          - network 172.16.2.0 0.0.0.3 area 1
+          - network {{ ip_lanS6_1 }} {{ wildmask_lanS6_1 }} {{ area }}
         parents:
           - router ospf 1
