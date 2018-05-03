@@ -16,4 +16,4 @@
     - debug: var=print.stdout_lines
 
     - name: Save configuration to a file
-      copy: content="{{ print.stdout[0] }}" dest="/Training/backups/{{ inventory_hostname }}.txt"
+      copy: content="{{ print.stdout[0] }}" dest="/root/Training/backups/{{ inventory_hostname }}.txt"
