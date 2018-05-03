@@ -3,6 +3,8 @@
 
 ## Skills Assessment - Student Training  
 
+![Topology for this example](Images/Training.png)
+
 En esta practica vamos a realizar la configuracion de una red simple para
 que que pueda tener conexion con IPv4, switch security, inter VLAN routing,
 OSPF.
