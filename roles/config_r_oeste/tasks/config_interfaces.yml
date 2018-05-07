@@ -5,7 +5,7 @@
 
   hosts: r-oeste
   connection: local
-
+  
   tasks:
           
     - name: Enable serial 6/0
@@ -20,7 +20,7 @@
         authorize: yes
         auth_pass: ansible
         lines:
-          - ip address {{ ip_r_oeste_s6_0 }} {{ mask_r_oeste_s6_0 }}
+          - ip address {{ ips60 }} {{ mask_r_oeste_s6_0 }}
           - clock rate 128000
         parents:
           - interface {{ item.id }}

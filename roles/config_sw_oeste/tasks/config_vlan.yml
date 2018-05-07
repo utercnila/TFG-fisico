@@ -10,26 +10,6 @@
     - name: Register Facts
       ios_facts:
 
-#Force trunking on Interface G1/0 with sw-este#
-
-    - name: Enable and describe G1/0
-      ios_interface:
-        authorize: yes
-        auth_pass: ansible
-        name: G1/0
-        description: trunk port with sw-este
-
-    - name: Enable trunk mode on G1/0
-      ios_config:
-        authorize: yes
-        auth_pass: ansible
-        lines:
-          - switchport mode trunk
-          - switchport trunk encapsulation dot1Q
-          - switchport trunk native vlan 1
-        parents:
-          - interface GigabitEthernet 1/0
-
 #Force trunking on Interface G0/0 with r-oeste#
 
     - name: Enable and describe G0/0
