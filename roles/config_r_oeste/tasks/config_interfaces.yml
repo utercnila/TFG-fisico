@@ -7,7 +7,7 @@
   connection: local
   
   tasks:
-          
+    - include_vars: ../vars/main.yml         
     - name: Enable serial 6/0
       ios_interface:
         authorize: yes

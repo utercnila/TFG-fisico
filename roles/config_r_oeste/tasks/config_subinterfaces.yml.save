@@ -6,7 +6,7 @@
   hosts: r-oeste
 
   tasks:
-    - include_vars: ../vars/main.yml
+
     - name: Configure subinterfaces for VLAN 21 & 23
       ios_config:
         authorize: yes
@@ -22,9 +22,3 @@
         - { id: "{{ id_vlan21 }}", ip: "{{ ip_vlan21 }}" }
         - { id: "{{ id_vlan23 }}", ip: "{{ ip_vlan23 }}" }
        
-    - name: Save configuration
-      ios_command:
-        authorize: yes
-        auth_pass: ansible
-        commands:
-          - write memory
