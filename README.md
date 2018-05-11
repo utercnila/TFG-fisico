@@ -7,19 +7,14 @@
 
 En esta practica vamos a realizar la configuracion de una red simple para
 que que pueda tener conexion con IPv4, switch security, inter VLAN routing,
-OSPF.
+OSPF and DHCP.  
 Los pasos serian los siguientes:
 
 - Part 1: Initialize Devices  
 - Part 2: Configure Device Basic Settings  
 - Part 3: Configure Switch Security, VLANs, and Inter-VLAN Routing   
 - Part 4: Configure OSPF  
-
-Despues de hacer las 4 partes vamos a implementar la practica con los siguientes pasos:
-
-- Part 5: Implement DHCP and NAT for IPv4  
-- Part 6: Configure NTP  
-
+- Part 5: Implement DHCP on R1 for VLAN 21 and VLan 23  
 
 Para la realizacion de la practica hemos usado la herramienta GNS3 y los
 dispositivos usados son los siguientes:
@@ -135,3 +130,10 @@ After we apply the basic configuration, we have to type manually “write memory
 After we apply the basic configuration, we have to type manually “write memory” on the route in order to will be able to save automatically the configuration after.  
 With the basic configuration, we have enough for R-ESTE so far.
 
+## 12-   Enable DHCP on R1  
+The next step in the is to enable DHCP on R1. I am going to create a new task config_dhcp.yml which you can find in roles/config_r_oeste/tasks.  
+
+To execute the role you can use the following command:  
+
+- ansible-playbook -i hosts roles/confi_r_oeste/tasks/config_dhcp.yml -k -u ansible  
+ 
