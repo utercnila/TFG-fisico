@@ -1,2 +1,5 @@
 ---
 # tasks file for config_r_norte
+
+- include: config_interfaces.yml
+- include: config_ospf.yml

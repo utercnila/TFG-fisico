@@ -1,2 +1,8 @@
 ---
 # tasks file for config_r_oeste
+- include: config_subinterfaces.yml
+- include: config_interfaces.yml
+- include: config_ospf.yml
+- include: config_dhcp.yml
+
+

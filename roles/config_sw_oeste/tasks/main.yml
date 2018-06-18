@@ -1,2 +1,4 @@
 ---
 # tasks file for config_sw_oeste
+- include: create_vlan.yml
+- include: config_vlan.yml
