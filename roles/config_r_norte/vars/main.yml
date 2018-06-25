@@ -1,6 +1,6 @@
 ---
 # vars file for config_r_norte
-
+area: 1
 ## Ip for Serial 0/1/1 ##
 desc_s6_0: Connection to r-oeste
 id_s6_0: Serial 0/1/1
