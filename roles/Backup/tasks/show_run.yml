@@ -9,5 +9,3 @@
   register: print
 - debug: var=print.stdout_lines
 
-- name: Save configuration to a file
-  copy: content="{{ print.stdout[0] }}" dest="/Users/Cretu/Desktop/TFG/backups/{{ inventory_hostname }}.txt"
