@@ -1,0 +1,138 @@
+Using 2140 out of 196600 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname r-oeste
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$rBnR$PAtRR424U353StIF0GE9y0
+!
+no aaa new-model
+ip cef
+!
+!
+no ip dhcp use vrf connected
+ip dhcp excluded-address 192.168.21.1 192.168.21.20
+ip dhcp excluded-address 192.168.23.1 192.168.23.20
+!
+ip dhcp pool Contabilidad
+   network 192.168.21.0 255.255.255.0
+   domain-name ccna-sa.com
+   dns-server 10.10.10.10 
+   default-router 192.168.21.1 
+!
+ip dhcp pool Ingenieria
+   network 192.168.23.0 255.255.255.0
+   domain-name ccna-sa.com
+   dns-server 10.10.10.10 
+   default-router 192.168.23.1 
+!
+!
+no ip domain lookup
+ip domain name cisco.com
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username ******** secret 5 $1$6HBb$vnoKtTN/PRTxdcMxBneIA.
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.21
+ description Contabilidad LAN
+ encapsulation dot1Q 21
+ ip address 192.168.21.1 255.255.255.0
+!
+interface FastEthernet0/1.23
+ description Contabilidad LAN
+ encapsulation dot1Q 23
+ ip address 192.168.23.1 255.255.255.0
+!
+interface FastEthernet0/1.99
+ description Management LAN
+ encapsulation dot1Q 99
+ ip address 192.168.99.1 255.255.255.0
+!
+interface Serial0/1/0
+ description Connection to r-este
+ ip address 172.16.2.2 255.255.255.252
+ clock rate 128000
+!
+interface Serial0/1/1
+ description Connection to r-oeste
+ ip address 172.16.1.1 255.255.255.252
+ clock rate 128000
+!
+router ospf 1
+ log-adjacency-changes
+ network 172.16.1.0 0.0.0.3 area 1
+ network 172.16.2.0 0.0.0.3 area 1
+ network 192.168.21.0 0.0.0.255 area 1
+ network 192.168.23.0 0.0.0.255 area 1
+ network 192.168.99.0 0.0.0.255 area 1
+!
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+banner motd ^C Unauthorized Access is Prohibited! ^C
+!
+line con 0
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+end

@@ -3,14 +3,14 @@
 ---
 
 - include_vars: ../vars/main.yml         
-- name: Enable serial 6/0
+- name: Enable serial 0/1/1
   ios_interface:
     authorize: yes
     auth_pass: ansible
-    name: Serial 6/0
+    name: Serial 0/1/1
     description: to r-norte
 
-- name: Configure serial 6/0
+- name: Configure serial 0/1/1
   ios_config:
     authorize: yes
     auth_pass: ansible
@@ -23,7 +23,7 @@
     after: no shutdown
 
   with_items:
-    - { id: Serial 6/0 }
+    - { id: Serial 0/1/1 }
 
 - name: Save configuration
   ios_command:

@@ -7,7 +7,7 @@
     authorize: yes
     auth_pass: ansible
     parents:
-      - interface g3/0.{{ item.id }}
+      - interface f0/1.{{ item.id }}
     lines:
       - description Contabilidad LAN
       - encapsulation dot1q {{ item.id }}

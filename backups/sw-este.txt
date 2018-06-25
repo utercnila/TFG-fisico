@@ -1,170 +1,200 @@
-Using 1891 out of 262144 bytes, uncompressed size = 3946 bytes
+Using 3167 out of 32768 bytes
 !
-! Last configuration change at 10:18:37 UTC Thu May 3 2018
-!
-version 15.2
-service timestamps debug datetime msec
-service timestamps log datetime msec
+version 12.1
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
 service password-encryption
-service compress-config
 !
 hostname sw-este
 !
-boot-start-marker
-boot-end-marker
+enable password 7 06070132454C051C
 !
-!
-enable secret 5 $1$daCP$1DVZyxfUGRNHEdI5Ckx3r/
-!
-username ******** secret 5 $1$lC/B$NU6A7cSYyb9h8hTXzEzJr0
-no aaa new-model
-!
-!
-!
-!
-!
-!
-!
+username ******** password 7 0112081752090A0A
+ip subnet-zero
 !
 no ip domain-lookup
 ip domain-name cisco.com
-ip cef
-no ipv6 cef
+ip ssh time-out 120
+ip ssh authentication-retries 3
+ip ssh version 2
+vtp mode transparent
 !
-!
-!
-spanning-tree mode rapid-pvst
+spanning-tree mode pvst
+no spanning-tree optimize bpdu transmission
 spanning-tree extend system-id
 !
-vlan internal allocation policy ascending
-!
-! 
 !
 !
 !
+vlan 13
+ name Que_pasa_aqui
 !
+vlan 21
+ name Contabilidad
 !
+vlan 23
+ name Ingenieria
 !
+vlan 77
+ name Servidores_Multicast
 !
+vlan 79
+ name T8002-RRsat
 !
+vlan 99
+ name Management
 !
+vlan 850
+ name T9212-Overon_TVIPS-00
 !
+vlan 851
+ name T9212-Overon_TVIPS-01
 !
+vlan 852
+ name T9212-Overon_TVIPS-02
 !
-interface GigabitEthernet0/0
+vlan 853
+ name T9212-Overon_TVIPS-03
+!
+vlan 854
+ name T9212-Overon_TVIPS-04
+!
+vlan 855
+ name T9212-Overon_TVIPS-05
+!
+vlan 856
+ name T9212-Overon_TVIPS-06
+!
+vlan 857
+ name T9212-Overon_TVIPS-07
+!
+vlan 858
+ name T9212-Overon_TVIPS-08
+!
+vlan 859
+ name T9212-Overon_TVIPS-09
+!
+interface FastEthernet0/1
  switchport access vlan 99
  switchport mode access
- media-type rj45
- negotiation auto
+!
+interface FastEthernet0/2
+ description trunk port
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ description Access to Vlan 23
+ switchport access vlan 23
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/11
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/12
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/14
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/15
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/16
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/17
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/18
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/19
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/20
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/21
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/22
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/23
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ switchport mode access
+ shutdown
 !
 interface GigabitEthernet0/1
- media-type rj45
- negotiation auto
+ switchport access vlan 99
+ switchport mode access
 !
 interface GigabitEthernet0/2
- media-type rj45
- negotiation auto
+ switchport mode access
+ shutdown
 !
-interface GigabitEthernet0/3
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/1
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/2
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet1/3
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/1
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/2
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet2/3
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/0
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/1
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/2
- media-type rj45
- negotiation auto
-!
-interface GigabitEthernet3/3
- media-type rj45
- negotiation auto
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
 !
 interface Vlan99
  ip address 192.168.99.10 255.255.255.0
+ no ip route-cache
 !
 ip default-gateway 192.168.99.1
-ip forward-protocol nd
-!
-no ip http server
-no ip http secure-server
-!
-ip ssh version 2
-!
-!
-!
-!
-!
-control-plane
-!
-banner exec ^C
-**************************************************************************
-* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
-* education. IOSv is provided as-is and is not supported by Cisco's      *
-* Technical Advisory Center. Any use or disclosure, in whole or in part, *
-* of the IOSv Software or Documentation to any third party for any       *
-* purposes is expressly prohibited except as otherwise authorized by     *
-* Cisco in writing.                                                      *
-**************************************************************************^C
-banner incoming ^C
-**************************************************************************
-* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
-* education. IOSv is provided as-is and is not supported by Cisco's      *
-* Technical Advisory Center. Any use or disclosure, in whole or in part, *
-* of the IOSv Software or Documentation to any third party for any       *
-* purposes is expressly prohibited except as otherwise authorized by     *
-* Cisco in writing.                                                      *
-**************************************************************************^C
-banner login ^C
-**************************************************************************
-* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
-* education. IOSv is provided as-is and is not supported by Cisco's      *
-* Technical Advisory Center. Any use or disclosure, in whole or in part, *
-* of the IOSv Software or Documentation to any third party for any       *
-* purposes is expressly prohibited except as otherwise authorized by     *
-* Cisco in writing.                                                      *
-**************************************************************************^C
-banner motd ^C Unauthorized Access is Prohibited! ^C
+ip http server
+banner motd ^C Unauthorized Acces is Prohibited! ^C
 !
 line con 0
-line aux 0
 line vty 0 4
  login local
  transport input ssh

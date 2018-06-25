@@ -23,6 +23,6 @@ ip_vlan21: 192.168.21.1
 id_vlan23: 23
 ip_vlan23: 192.168.23.1
 
-## Ip for serial6/0 ##
+## Ip for serial0/1/1 ##
 ips60: 172.16.1.1
 mask_r_oeste_s6_0: 255.255.255.252

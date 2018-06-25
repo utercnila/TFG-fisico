@@ -2,7 +2,7 @@
 
 ---
 - include_vars: ../vars/main.yml
-- name: Enable serial 6/0 & 6/1
+- name: Enable serial 0/1/0 & 0/1/1
   ios_interface:
     authorize: yes
     auth_pass: ansible
@@ -13,7 +13,7 @@
     - { id: "{{ id_s6_0 }}", desc: "{{ desc_s6_0 }}" }
     - { id: "{{ id_s6_1 }}", desc: "{{ desc_s6_1 }}" }
 
-- name: Configure serial 6/0 & 6/1
+- name: Configure serial 0/1/0 & 0/1/1
   ios_config:
     authorize: yes
     auth_pass: ansible
@@ -26,14 +26,14 @@
   with_items:
     - { id: "{{ id_s6_1 }}", ip: "{{ ip_r_norte_s6_1 }}", mask: "{{ mask_r_norte_s6_1 }}" }
 
-- name: Enable Clock Rate Serial 6/1
+- name: Enable Clock Rate Serial 0/1/0
   ios_config:
     authorize: yes
     auth_pass: ansible
     lines: 
       - clock rate 128000
     parents: 
-      - interface Serial 6/1
+      - interface Serial 0/1/0
 
 - name: Save configuration
   ios_command:

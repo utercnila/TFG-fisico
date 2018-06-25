@@ -13,11 +13,11 @@ ip ssh version 2
 line vty 0 15
 login local
 transport input ssh
-interface g3/0.99
+interface f0/1.99
  description Management LAN
  encapsulation dot1q 99
  ip address 192.168.99.1 255.255.255.0
-interface g3/0
+interface f0/1
  no sh
 end 
 

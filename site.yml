@@ -1,17 +1,10 @@
 ---
-- name: Realizar copia de seguridad
-  hosts: all
-  gather_facts: false
-  connection: local
-
-  roles:
-    - Backup
 
 - name: Configurar Switch Este
   hosts: sw-este
   gather_facts: false
   connection: local
-
+  
   roles:
     - config_sw_este
 
@@ -19,11 +12,11 @@
   hosts: sw-oeste
   gather_facts: false
   connection: local
-
+  
   roles:
-    - config_sw_oeste
+   - config_sw_oeste
 
-- name: Configurar Router Norte
+- name: Configurar Router Oeste
   hosts: r-oeste
   gather_facts: false
   connection: local
@@ -38,3 +31,11 @@
 
   roles:
     - config_r_norte
+
+- name: Realizar copia de seguridad
+  hosts: all
+  gather_facts: false
+  connection: local
+
+  roles:
+    - Backup

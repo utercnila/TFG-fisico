@@ -13,7 +13,7 @@ ip ssh version 2
 line vty 0 15
 login local
 transport input ssh
-interface serial 6/1
+interface serial 0/1/0
  ip address 172.16.2.1 255.255.255.252
  no sh
 router ospf 1
