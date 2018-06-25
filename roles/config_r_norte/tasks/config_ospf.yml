@@ -5,6 +5,6 @@
     authorize: yes
     auth_pass: ansible
     lines:
-      - network {{ ip_lanS6_1 }} {{ wildmask_lanS6_1 }} area {{ area }}
+      - network {{ ip_lanS6_1 }} {{ wildmask_lanS6_1 }} area 1
     parents:
       - router ospf 1
